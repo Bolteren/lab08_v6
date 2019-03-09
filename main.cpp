@@ -76,7 +76,27 @@ double testPoint(coord v0, coord v1, coord vtest)
 	dtest = a * vtest.x + b * vtest.y + c;
 	return dtest;
 }
-
+bool testArr(double *arr)
+{
+	bool tst = false;
+	double test1 = 0.0, test2 = 0.0;
+	for(int counter = 0; counter < 8; counter ++)
+	{
+		test1 += arr[counter];
+	}
+	for(int counter = 0; counter < 8; counter ++)
+	{
+		test2 += modl(arr[counter]);
+	}
+	test1 = modl(test1);
+//	cout << "test1 == " << test1 << "test2 == " << test2;
+	if(test1 == test2)
+	{
+		tst = true;
+	}
+	else tst = false;
+	return tst;
+}
 bool testFigure(figure f1)
 {
 	int counter = 3, ctrTest = 0;
@@ -112,11 +132,8 @@ bool testFigure(figure f1)
 		}
 		else counter++;
 	}
-	for (int i = 0; i < 8; i++)
-	{
-		cout << Tst[i] << endl;
-	}
-	return true;
+	
+	return testArr(Tst);
 }
 
 int main(void) 
@@ -132,9 +149,7 @@ int main(void)
 	f2.mCoord[1].initial(8, 1);
 	f2.mCoord[2].initial(5, 2);
 	f2.mCoord[3].initial(7, 4);
+	cout << "f1 = " << testFigure(f1) << " f2 = " << testFigure(f2) << endl;
 	
-	
-	
-	testFigure(f2);
 	return 0;
 }
