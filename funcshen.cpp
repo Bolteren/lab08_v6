@@ -19,13 +19,6 @@ double modl(double a)
 	return a;
 }
 
-coord vctr(coord v0, coord v1) 
-{
-	coord v1v0;
-	v1v0 = v1 - v0;
-	return v1v0;
-}
-
 double testPoint(coord v0, coord v1, coord vtest)
 {
 	double a,b,c, dtest;

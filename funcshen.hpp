@@ -41,8 +41,6 @@ int modl(int);//Поиск модуля от int
 
 double modl(double);//Поиск модуля от double
 
-coord vctr(coord, coord);
-
 double testPoint(coord, coord, coord);
 
 int testArr(double *);
