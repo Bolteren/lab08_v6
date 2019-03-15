@@ -29,7 +29,7 @@ double testPoint(coord v0, coord v1, coord vtest)
 	return dtest;
 }
 
-int testArr(double *arr)
+bool testArr(double *arr)
 {
 	bool tst = false;
 	double test1 = 0.0, test2 = 0.0;
@@ -50,7 +50,7 @@ int testArr(double *arr)
 	return tst;
 }
 
-int testFigure(figure f1)
+bool testFigure(figure f1)
 {
 	int counter = 3, ctrTest = 0;
 	double Tst[8];
@@ -85,19 +85,15 @@ int testFigure(figure f1)
 		}
 		else counter++;
 	}
-//	std::cout << " " << "\b";//без этого работает не правильно, хз почему.
 	return testArr(Tst);
 }
 
 double square(figure tsFig)
 {
-	/*-------------------------------*/
-	double x[4];  
-	double y[4];
-	double s, res = 0;
- 
 	int n = 4;
-	
+	double x[n];  
+	double y[n];
+	double s, res = 0;
 	for (int i = 0; i < n; i++) 
 	{
     	x[i] = tsFig.mCoord[i].x; 
@@ -123,9 +119,19 @@ double square(figure tsFig)
      	}
    	}
    	res = modl(res/2);
-
-	
-	
-	/*-----------------------------*/
 	return res;
+}
+
+double EndTestOut(figure fg)
+{
+	double rtrn = 0.0;
+	if(testFigure(fg) == false)
+	{
+		rtrn = square(fg);
+	}
+	else
+	{
+		rtrn = -1000.0;
+	}
+	return rtrn;
 }

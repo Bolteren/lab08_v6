@@ -63,8 +63,10 @@ double modl(double);//Поиск модуля от double
 
 double testPoint(coord, coord, coord);
 
-int testArr(double *);
+bool testArr(double *);
 
-int testFigure(figure);
+bool testFigure(figure);
 
 double square(figure);
+
+double EndTestOut(figure);
