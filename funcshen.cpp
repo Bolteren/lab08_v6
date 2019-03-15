@@ -85,6 +85,47 @@ int testFigure(figure f1)
 		}
 		else counter++;
 	}
-	std::cout << " " << "\b";//без этого работает не правильно, хз почему.
+//	std::cout << " " << "\b";//без этого работает не правильно, хз почему.
 	return testArr(Tst);
+}
+
+double square(figure tsFig)
+{
+	/*-------------------------------*/
+	double x[4];  
+	double y[4];
+	double s, res = 0;
+ 
+	int n = 4;
+	
+	for (int i = 0; i < n; i++) 
+	{
+    	x[i] = tsFig.mCoord[i].x; 
+    	y[i] = tsFig.mCoord[i].y; 
+   	}
+
+	for (int i = 0; i < n; i++) 
+	{
+    	if (i == 0) 
+		{
+       		s = x[i]*(y[n-1] - y[i+1]);
+       		res += s;
+     	}
+    	else	if (i == n-1) 
+		{
+	 		s = x[i]*(y[i-1] - y[0]);
+	 		res += s;
+       	}
+     	else 
+		{
+       		s = x[i]*(y[i-1] - y[i+1]);
+       		res += s;
+     	}
+   	}
+   	res = modl(res/2);
+
+	
+	
+	/*-----------------------------*/
+	return res;
 }
