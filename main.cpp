@@ -1,5 +1,6 @@
 #include "funcshen.hpp"
 #include <fstream>
+#include <conio.h>
 
 using namespace std;
 
@@ -55,8 +56,15 @@ void OpenFileTest(void)
 int main(void) 
 {
 	setlocale(LC_ALL,"Russian");
-
-	OpenFileTest();
-
+	char at = '1';
+	while(true)
+	{
+		if(at == '1')
+			OpenFileTest();
+		else break;
+		cout << endl << endl << "Для продолжения работы нажмите \'1\', для выхода любую другую клавишу.";
+		at = getch();
+		system("cls");
+	}
 	return 0;
 }
